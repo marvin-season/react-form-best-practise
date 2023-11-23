@@ -1,10 +1,10 @@
 import './App.css'
-import ReactForm from "./FormDemo.tsx";
+import FormikDemo from "./FormikDemo.tsx";
 
 function App() {
   return (
     <>
-    <ReactForm/>
+    <FormikDemo/>
     </>
   )
 }

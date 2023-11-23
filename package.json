@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "antd": "^5.11.2",
+    "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
