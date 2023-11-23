@@ -39,7 +39,7 @@ const FormikDemo: React.FC<FormikDemoProps> = () => {
                 console.log(values)
             }}>
                 {
-                    ({values, errors, isSubmitting, handleSubmit, handleChange}) => {
+                    ({values, errors, handleSubmit, handleChange}) => {
                         return <>
                             <form onSubmit={handleSubmit}>
                                 <div style={{display: "flex", justifyContent: "flex-start"}}>
@@ -62,7 +62,7 @@ const FormikDemo: React.FC<FormikDemoProps> = () => {
                                 <FieldArray name={'parameters'} render={(arrayHelpers) => {
                                     return <>
                                         {
-                                            values.parameters.map((a, i) => {
+                                            values.parameters.map((_, i) => {
                                                 return <div key={i}
                                                             style={{display: "flex", justifyContent: "flex-start"}}>
                                                     <label>参数</label>
