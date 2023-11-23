@@ -1,10 +1,10 @@
 import './App.css'
-import FormikDemo from "./FormikDemo.tsx";
+import FormikHookDemo from "./FormikHookDemo.tsx";
 
 function App() {
   return (
     <>
-    <FormikDemo/>
+    <FormikHookDemo/>
     </>
   )
 }

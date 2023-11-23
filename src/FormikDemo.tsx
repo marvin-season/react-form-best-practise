@@ -10,7 +10,7 @@ const schema = yup.object({
 interface FormikDemoProps {
 }
 
-interface FormValues {
+export interface FormValues {
     name: string;
     hobby: string[];
     gender: 'male' | 'female';
