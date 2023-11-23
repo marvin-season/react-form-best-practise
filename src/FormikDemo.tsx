@@ -1,11 +1,19 @@
 import React from 'react'
 import {FieldArray, Formik} from "formik";
 
+import * as yup from 'yup'
+
+const schema = yup.object({
+    name: yup.string().required('name is required!'),
+})
+
 interface FormikDemoProps {
 }
 
 interface FormValues {
     name: string;
+    hobby: string[];
+    gender: 'male' | 'female';
     parameters: {
         name: string;
         description: string;
@@ -15,6 +23,8 @@ interface FormValues {
 const FormikDemo: React.FC<FormikDemoProps> = () => {
     const initValues: FormValues = {
         name: '',
+        hobby: [],
+        gender: "male",
         parameters: [
             {
                 name: '',
@@ -25,7 +35,7 @@ const FormikDemo: React.FC<FormikDemoProps> = () => {
 
     return (
         <>
-            <Formik initialValues={initValues} onSubmit={(values) => {
+            <Formik initialValues={initValues} validationSchema={schema} onSubmit={(values) => {
                 console.log(values)
             }}>
                 {
@@ -36,6 +46,18 @@ const FormikDemo: React.FC<FormikDemoProps> = () => {
                                     <label>name:</label>
                                     <input name={'name'} value={values.name} onChange={handleChange}/>
                                     {errors.name && <span>{errors.name}</span>}
+                                </div>
+                                <div style={{display: "flex", justifyContent: "flex-start"}}>
+                                    <label>checkbox: </label>
+                                    <input type={'checkbox'} name={'hobby'} defaultChecked={true} value={'code'}
+                                           onChange={handleChange}/>
+                                    <input type={'checkbox'} name={'hobby'} value={'game'} onChange={handleChange}/>
+                                </div>
+                                <div style={{display: "flex", justifyContent: "flex-start"}}>
+                                    <label>radio: </label>
+                                    <input type={'radio'} name={'gender'} value={'female'}
+                                           onChange={handleChange}/>
+                                    <input type={'radio'} name={'gender'} value={'male'} onChange={handleChange}/>
                                 </div>
                                 <FieldArray name={'parameters'} render={(arrayHelpers) => {
                                     return <>
